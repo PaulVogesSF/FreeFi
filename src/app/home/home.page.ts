@@ -10,6 +10,7 @@ import { StateService } from '../services/state.service';
 export class HomePage implements OnInit {
 
   showTaxDeclLink: boolean = true;
+  showInsuranceLink: boolean = true;
 
   constructor(private stateService: StateService) {
 
@@ -22,6 +23,10 @@ export class HomePage implements OnInit {
   ngDoCheck() {
     if (this.showTaxDeclLink && this.stateService.has('taxdeclfinished')) {
       this.showTaxDeclLink = !this.stateService.get('taxdeclfinished');
+    }
+
+    if (this.showInsuranceLink && this.stateService.has('insurancefinished')) {
+      this.showInsuranceLink = !this.stateService.get('insurancefinished');
     }
   }
 

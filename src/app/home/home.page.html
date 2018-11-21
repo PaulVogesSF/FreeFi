@@ -17,6 +17,14 @@
     </ion-item>
   </ion-card>
 
+  <ion-card *ngIf="showInsuranceLink">
+    <ion-item href="/insurance" slot="start">
+      <ion-card-content>
+        Dir felt noch die <strong>IT-Haftpflichtversicherung</strong>
+      </ion-card-content>
+    </ion-item>
+  </ion-card>
+
   <ion-card>
     <ion-item href="#" slot="start">
       <ion-card-content>

@@ -7,7 +7,8 @@ const routes: Routes = [
   // { path: '', redirectTo: '/landing', pathMatch: 'full' },
   { path: 'landing', loadChildren: './landing/landing.module#LandingPageModule' },
   { path: 'videochat', loadChildren: './videochat/videochat.module#VideochatPageModule' },
-  { path: 'taxdeclaration', loadChildren: './taxdeclaration/taxdeclaration.module#TaxDeclarationModule' }
+  { path: 'taxdeclaration', loadChildren: './taxdeclaration/taxdeclaration.module#TaxDeclarationModule' },
+  { path: 'insurance', loadChildren: './insurance/insurance.module#InsuranceModule' }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
