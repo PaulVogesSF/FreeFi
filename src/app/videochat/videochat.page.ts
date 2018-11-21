@@ -10,9 +10,9 @@ import { AngularAgoraRtcService, Stream } from 'angular-agora-rtc';
 })
 export class VideochatPage {
   title = 'AgoraDemo';
-  localStream: Stream // Add
+  localStream: Stream;
+  remoteCalls: any = [];
 
-  // Add
   constructor(
     private agoraService: AngularAgoraRtcService
   ) {
@@ -31,6 +31,7 @@ export class VideochatPage {
     this.localStream.on('accessAllowed', () => {
       console.log('accessAllowed');
     });
+    // The user has denied access to the camera and mic.
     this.localStream.on('accessDenied', () => {
       console.log('accessDenied');
     });
@@ -46,6 +47,54 @@ export class VideochatPage {
       });
     }, function (err) {
       console.log('getUserMedia failed', err);
+    });
+
+    // Add
+    this.agoraService.client.on('error', (err) => {
+      console.log('Got error msg:', err.reason);
+      if (err.reason === 'DYNAMIC_KEY_TIMEOUT') {
+        this.agoraService.client.renewChannelKey('', () => {
+          console.log('Renew channel key successfully');
+        // tslint:disable-next-line:no-shadowed-variable
+        }, (err) => {
+          console.log('Renew channel key failed: ', err);
+        });
+      }
+    });
+
+    // Add
+    this.agoraService.client.on('stream-added', (evt) => {
+      const stream = evt.stream;
+      this.agoraService.client.subscribe(stream, (err) => {
+        console.log('Subscribe stream failed', err);
+      });
+    });
+
+    // Add
+    this.agoraService.client.on('stream-subscribed', (evt) => {
+      const stream = evt.stream;
+      if (!this.remoteCalls.includes(`agora_remote${stream.getId()}`)) {
+        this.remoteCalls.push(`agora_remote${stream.getId()}`);
+      }
+      setTimeout(() => stream.play(`agora_remote${stream.getId()}`), 2000);
+    });
+
+    // Add
+    this.agoraService.client.on('stream-removed', (evt) => {
+      const stream = evt.stream;
+      stream.stop();
+      this.remoteCalls = this.remoteCalls.filter(call => call !== `#agora_remote${stream.getId()}`);
+      console.log(`Remote stream is removed ${stream.getId()}`);
+    });
+
+    // Add
+    this.agoraService.client.on('peer-leave', (evt) => {
+      const stream = evt.stream;
+      if (stream) {
+        stream.stop();
+        this.remoteCalls = this.remoteCalls.filter(call => call === `#agora_remote${stream.getId()}`);
+        console.log(`${evt.uid} left from this channel`);
+      }
     });
   }
 }
