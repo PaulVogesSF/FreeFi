@@ -1,12 +1,8 @@
 #videoContainer {
     position: relative;
-}
-
-#agora_local div {
-    border-radius: 200px 200px 200px 200px;
-    -moz-border-radius: 200px 200px 200px 200px;
-    -webkit-border-radius: 200px 200px 200px 200px;
-    border: 1px solid #ffffff;  
+    margin: 20px;
+    display: flex;
+    align-content: center;
 }
 
 #agora_local{
@@ -15,11 +11,17 @@
     position: absolute;
     top: 60px;
     right: 25px;
+
+    border-radius: 200px 200px 200px 200px;
+    -moz-border-radius: 200px 200px 200px 200px;
+    -webkit-border-radius: 200px 200px 200px 200px;
+    border: 1px solid #ffffff;
+    overflow: hidden;
 }
 
 .remote-containers div{
     position: absolute;
     top: 50px;
     height: 550px;
-    width: 380px;
+    width: 100%;
 }
