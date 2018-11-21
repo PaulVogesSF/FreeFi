@@ -1,10 +1,12 @@
-import { Router } from '@angular/router';
-import { AngularFirestore } from '@angular/fire/firestore';
-import { Freelancer } from './../model/freelancer.model';
-import { FormGroup, FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
+import { Observable } from 'rxjs';
+
+import { Freelancer } from './../model/freelancer.model';
+import { StateService } from '../services/state.service';
 
 @Component({
   selector: 'app-checkresults',
@@ -42,7 +44,8 @@ export class CheckresultsPage implements OnInit {
   constructor(private formBuilder: FormBuilder,
     private fireStore: AngularFirestore,
     private router: Router,
-    public loadingController: LoadingController) { }
+    public loadingController: LoadingController,
+    private stateService: StateService) { }
 
   ngOnInit() {
     this.branches.sort();
@@ -65,12 +68,25 @@ export class CheckresultsPage implements OnInit {
   submit() {
     this.currentFreelancer = this.resultsform.value;
     this.fireStore
-    .collection<Freelancer>('users')
-    .doc('bIcyKqXhxPq4zOUuFHxh')
-    .set(this.currentFreelancer);
+      .collection<Freelancer>('users')
+      .doc('bIcyKqXhxPq4zOUuFHxh')
+      .set(this.currentFreelancer);
 
+    this.stateService.set('onboardingfinished', true);
+
+<<<<<<< HEAD
     this.router.navigate(['/dashboard']);
     }
+=======
+    this.presentLoading();
+
+    setTimeout(() => {
+      console.log('Waited');
+      this.router.navigate(['/']);
+    }, 2500);
+  }
+
+>>>>>>> cd122c7a3860414a4a7ceadd00cb66bbd8d7dba1
 
 
   buildForm() {

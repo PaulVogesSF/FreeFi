@@ -4,12 +4,41 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
+
   <ion-card-header>
     <ion-card-title>Hallo Franki</ion-card-title>
   </ion-card-header>
 
-  <ion-card *ngIf="showTaxDeclLink">
+  <div *ngIf="showCards < 6">
+      <p padding><strong>Analysiere deine Daten...</strong></p>
+      <progress value="{{showCards}}" max="5"></progress>
+  </div>
+
+  <ion-fab vertical="top" horizontal="end">
+    <ion-button href="/taxdeclaration" (click)="showChat()" color="danger">
+      Chat
+    </ion-button>
+  </ion-fab>
+
+  <ion-card *ngIf="showCards >= 1">
+    <ion-item href="/taxdeclaration" slot="start">
+      <ion-card-content>
+        Neu hier? Na, dann schau doch mal in unsere <strong>Einführung</strong>.
+      </ion-card-content>
+    </ion-item>
+  </ion-card>
+
+
+  <ion-card *ngIf="showCards >= 2">
+    <ion-item href="/taxdeclaration" slot="start">
+      <ion-card-content>    
+        Welche <strong>Versicherungen</strong> sind für dich wirklich sinnvoll? Wir zeigen sie dir.
+      </ion-card-content>
+    </ion-item>
+  </ion-card>
+
+  <ion-card *ngIf="showCards >= 3 && showTaxDeclLink">
     <ion-item href="/taxdeclaration" slot="start">
       <ion-card-content>
         Es ist mal wieder Zeit für deine <strong>Steuererklärung</strong>
@@ -17,27 +46,21 @@
     </ion-item>
   </ion-card>
 
-  <ion-card *ngIf="showInsuranceLink">
+  <ion-card *ngIf="showCards >= 4 && showInsuranceLink">
     <ion-item href="/insurance" slot="start">
       <ion-card-content>
-        Dir felt noch die <strong>IT-Haftpflichtversicherung</strong>
+        Dir fehlt noch die <strong>IT-Haftpflichtversicherung</strong>
       </ion-card-content>
     </ion-item>
   </ion-card>
 
-  <ion-card>
+  <ion-card *ngIf="showCards >= 5">
     <ion-item href="#" slot="start">
       <ion-card-content>
-        Weitere Hinweise
+        <strong>Finanzierung</strong> benötigt? Wir zeigen dir, welche zu dir passt.
       </ion-card-content>
     </ion-item>
   </ion-card>
-
-  <ion-fab vertical="bottom" horizontal="center">
-    <ion-button href="/taxdeclaration" (click)="showChat()">
-      Fragen?
-    </ion-button>
-  </ion-fab>
 
 
 </ion-content>
