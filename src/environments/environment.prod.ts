@@ -8,5 +8,9 @@ export const environment = {
     projectId: 'freefi-4f345',
     storageBucket: 'freefi-4f345.appspot.com',
     messagingSenderId: '50116035025'
+  },
+
+  agora: {
+    appID: '59e5fed1ef904a139cd4eb7ae0177c6f'
   }
 };

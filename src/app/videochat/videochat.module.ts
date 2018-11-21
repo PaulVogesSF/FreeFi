@@ -6,6 +6,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { VideochatPage } from './videochat.page';
+import { AgoraConfig, AngularAgoraRtcModule } from 'angular-agora-rtc';
+import { environment } from 'src/environments/environment.prod';
+
+const agoraConfig: AgoraConfig = {
+  AppID: environment.agora.appID,
+};
 
 const routes: Routes = [
   {
@@ -19,7 +25,9 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    AngularAgoraRtcModule.forRoot(agoraConfig)
+
   ],
   declarations: [VideochatPage]
 })

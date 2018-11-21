@@ -17,6 +17,13 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 /* Forms */
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { AngularAgoraRtcModule, AgoraConfig } from 'angular-agora-rtc';
+
+const agoraConfig: AgoraConfig = {
+  AppID: environment.agora.appID,
+};
+
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -26,7 +33,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularAgoraRtcModule.forRoot(agoraConfig)
 
   ],
   providers: [
