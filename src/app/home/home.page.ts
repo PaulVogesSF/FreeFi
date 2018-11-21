@@ -1,6 +1,6 @@
-import { Freelancer } from './../model/freelancer.model';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+import { StateService } from '../services/state.service';
 
 @Component({
   selector: 'app-home',
@@ -8,46 +8,24 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['home.page.scss']
 })
 export class HomePage implements OnInit {
-  basicForm: FormGroup;
 
-  newFreelancer: Freelancer;
+  showTaxDeclLink: boolean = true;
 
-  branches = [
-    'Bank- und Finanzwesen',
-    'Versicherungen',
-    'IT',
-    'Werbung und PR',
-    'Beratung',
-    'Telekommunikation',
-    'Automobil',
-    'Chemie und Pharma',
-    'Software',
-    'E-Commerce',
-    'Energie und Umwelt',
-    'Handwerk',
-    'Dienstleistung',
-    'Freizeit',
-    'Kultur',
-    'Handel',
-    'Gastronomie',
-    'Verkehr',
+  constructor(private stateService: StateService) {
 
-  ];
-
-  constructor(private formBuilder: FormBuilder) {}
-
-  ngOnInit() {
-    this.buildBasicForm();
   }
 
+  ngOnInit() {
 
+  }
 
-  buildBasicForm() {
-    this.basicForm = this.formBuilder.group({
-      name: ['', Validators.required],
-      founding_status: ['', Validators.required],
-      branche: ['', Validators.required],
-      occupation: ''
-    });
+  ngDoCheck() {
+    if (this.showTaxDeclLink && this.stateService.has('taxdeclfinished')) {
+      this.showTaxDeclLink = !this.stateService.get('taxdeclfinished');
+    }
+  }
+
+  public showChat(): void {
+
   }
 }
