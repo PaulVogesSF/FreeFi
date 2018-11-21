@@ -8,19 +8,80 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-card-subtitle>Steuererklärung für 2018</ion-card-subtitle>
+  <ion-card-subtitle>Wichtige Versicherungen</ion-card-subtitle>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Hiscox</ion-card-subtitle>
+      <ion-card-title>43,46 €/Monat</ion-card-title>
+    </ion-card-header>
+    <ion-item>
+      <ion-icon name="checkmark" slot="start"></ion-icon>
+      <ion-label text-wrap>
+        Programmierfehler und Sicherheitslücken
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="checkmark" slot="start"></ion-icon>
+      <ion-label text-wrap>
+        Fehlerhafte oder verzögerte Leistungserbringung
+      </ion-label>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-icon name="checkmark" slot="start"></ion-icon>
+      <ion-label text-wrap>
+        Urheberrechtsverletzung und Virenübertragung
+      </ion-label>
+    </ion-item>
+    <ion-card-content>
+      <ion-button>
+        Wählen
+      </ion-button>
+      <ion-button color="medium">
+        Mehr Information
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
 
-  <p>Hallo Franki.</p>
-  <p>Als Software-entwickler wird dir die IT-Haftpflicht­versicherung dringend empfohlen.</p>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>exali</ion-card-subtitle>
+      <ion-card-title>593,75 €/Jahr</ion-card-title>
+    </ion-card-header>
+    <ion-item>
+      <ion-icon name="checkmark" slot="start"></ion-icon>
+      <ion-label text-wrap>
+        Prüfung von Ansprüchen
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="checkmark" slot="start"></ion-icon>
+      <ion-label text-wrap>
+        Rechtsschutz-Funktion
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="checkmark" slot="start"></ion-icon>
+      <ion-label text-wrap>
+        Schadenersatzzahlung
+      </ion-label>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-icon name="checkmark" slot="start"></ion-icon>
+      <ion-label text-wrap>
+        Risiko für Unternehmer minimieren
+      </ion-label>
+    </ion-item>
+    <ion-card-content>
+      <ion-button>
+        Wählen
+      </ion-button>
+      <ion-button color="medium">
+        Mehr Information
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
 
-  <ion-button href="#" expand="full" color="medium">Zeig sie mir</ion-button>
-
-  <p><strong>Keine Zeit, keine Lust.</strong></p>
-  <p>Einer unserer Versicherungsmakler/innen wird sich darum kümmern und dich bei Fragen kontaktieren.</p>
-  <p>Wir informieren dich regelmäßig zum Fortschritt.</p>
-
-  <ion-button class="doitforme" (click)="doItForMe()" expand="full" color="danger">
-    <strong>Mach du das für mich</strong>
-  </ion-button>
-
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-button><ion-icon name="text" slot="start"></ion-icon> Hilf mir damit</ion-button> 
+  </ion-fab>
 </ion-content>
