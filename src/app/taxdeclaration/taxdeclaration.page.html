@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-title>Willkommen</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card-subtitle>Steuererklärung für 2018</ion-card-subtitle>
+
+  <p>Hallo Franki.</p>
+  <p>Deine Steuererklärung für letztes Jahr steht an. Wir haben in der App bereits Daten gesammelt,
+    um dich bei deiner Steuererklärung zu unterstützen.</p>
+
+  <ion-button href="#" expand="full" color="medium">Zeig sie mir</ion-button>
+
+  <p><strong>Keine Zeit, keine Lust.</strong></p>
+  <p>Einer unserer Steuerberater/innen wird sich darum kümmern und dich bei Fragen kontaktieren.</p>
+  <p>Wir informieren dich regelmäßig zum Fortschritt.</p>
+
+  <ion-button class="doitforme" (click)="doItForMe()" expand="full" color="danger">
+    <strong>Mach du das für mich</strong>
+  </ion-button>
+
+</ion-content>

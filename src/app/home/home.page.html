@@ -1,42 +1,35 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="danger">
     <ion-title>Willkommen</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  <p>
-  Herzlich Willkommen bei Free my Freelance.
-  Wir helfen dir dabei, deine Freiberuflichkeit zu managen.
+  <ion-card-header>
+    <ion-card-title>Hallo Franki</ion-card-title>
+  </ion-card-header>
 
-  Gebe uns folgende Daten und wir verbinden dich mit einem unserer Kompetenten Berater,
-  der dir in einem ersten persönlichen Gespräch Rede und Antwort steht.</p>
-<!--
-  <ion-item>
-    <ion-label floating>Dein Name:</ion-label>
-    <ion-input type="text" formControlName="name"></ion-input>
-  </ion-item>
+  <ion-card *ngIf="showTaxDeclLink">
+    <ion-item href="/taxdeclaration" slot="start">
+      <ion-card-content>
+        Es ist mal wieder Zeit für deine <strong>Steuererklärung</strong>
+      </ion-card-content>
+    </ion-item>
+  </ion-card>
 
-  <ion-item>
-    <ion-label floating>Wie weit bist du mit deiner Gründung?</ion-label>
-    <ion-select formControlName="founding_status">
-      <ion-option value="preFounding">Ich plane, Freelancer zu werden</ion-option>
-      <ion-option value="duringFounding">Ich befinde mich gerade in der Gründung</ion-option>
-      <ion-option value="postFounding">Ich bin bereits angemeldeter Freelancer</ion-option>
-    </ion-select>
-  </ion-item>
-  
-  <ion-item>
-    <ion-label floating>In welcher Branche bist du tätig?</ion-label>
-    <ion-select formControlName="founding_status" *ngFor="let branche of branches">
-      <ion-option value="branche">{{ branche }}</ion-option>
-    </ion-select>
-  </ion-item>
+  <ion-card>
+    <ion-item href="#" slot="start">
+      <ion-card-content>
+        Weitere Hinweise
+      </ion-card-content>
+    </ion-item>
+  </ion-card>
 
-  <ion-item>
-    <ion-label floating>Dein Name:</ion-label>
-    <ion-input type="text" formControlName="name"></ion-input>
-  </ion-item>
+  <ion-fab vertical="bottom" horizontal="center">
+    <ion-button href="/taxdeclaration" (click)="showChat()">
+      Fragen?
+    </ion-button>
+  </ion-fab>
 
-  -->
+
 </ion-content>
