@@ -7,6 +7,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/landing', pathMatch: 'full' },
   { path: 'landing', loadChildren: './landing/landing.module#LandingPageModule' },
   { path: 'videochat', loadChildren: './videochat/videochat.module#VideochatPageModule' },
+  { path: 'checkresults', loadChildren: './checkresults/checkresults.module#CheckresultsPageModule' },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

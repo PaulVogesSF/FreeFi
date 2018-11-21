@@ -17,6 +17,15 @@ export class LandingPage implements OnInit {
     branche: '',
     occupation: '',
     founding_status: '',
+    freelancerType: 'Partnergesellschaft',
+    street: 'Musterstraße',
+    streetNo: 42,
+    plz: '12345',
+    city: 'Musterstadt',
+    steuerNo: '2613081508153',
+    ustID: 'DE123456789',
+    founding_date: '2018-12-24',
+    taxAdvisor: 'Peter Steuermeister'
   };
 
   branches = [
@@ -46,19 +55,23 @@ export class LandingPage implements OnInit {
     private router: Router) {}
 
   ngOnInit() {
+    this.branches.sort();
     this.buildBasicForm();
   }
 
   submit() {
     const newID = this.fireStore.createId();
-    this.newFreelancer = this.basicForm.value;
+    this.newFreelancer.name = this.basicForm.value['name'];
+    this.newFreelancer.founding_status = this.basicForm.value['founding_status'];
+    this.newFreelancer.branche = this.basicForm.value['branche'];
+    this.newFreelancer.occupation = this.basicForm.value['occupation'];
     console.log('Created freelancer: ', this.newFreelancer);
-    /* this.fireStore
+    this.fireStore
     .collection<Freelancer>('users')
     .doc(newID)
-    .set(this.newFreelancer); */ // TODO: Re-Enable
+    .set(this.newFreelancer);
 
-    this.router.navigate(['/videochat']);
+    this.router.navigate(['/checkresults']);
   }
 
 

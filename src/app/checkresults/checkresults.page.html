@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-title>Videocall: Die Ergebnisse</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <p>
+    Hat unser Berater deine Daten korrekt erfasst?
+    Bitte überprüfe und korrigiere sie unten, um zu deinem persönlichen Beratungsbereich zu gelangen.
+  </p>
+  <form [formGroup]="resultsform">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Dein Name:</ion-label>
+        <ion-input type="text" formControlName="name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Deine Adresse:</ion-label>
+        <ion-input type="text" formControlName="street"></ion-input>
+        <ion-input type="text" formControlName="streetNo"></ion-input>
+        <ion-input type="text" formControlName="plz"></ion-input>
+        <ion-input type="text" formControlName="city"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Deine Steuernummer:</ion-label>
+        <ion-input type="text" formControlName="steuerNo"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Deine Umsatzsteuer-ID:</ion-label>
+        <ion-input type="text" formControlName="ustID"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Dein Steuerberater:</ion-label>
+        <ion-input type="text" formControlName="taxAdvisor"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Deine Gründungsphase:</ion-label>
+        <ion-select class="basicSelect" formControlName="founding_status">
+          <ion-select-option [value]="preFounding">In Planung</ion-select-option>
+          <ion-select-option [value]="duringFounding">In der Gründung</ion-select-option>
+          <ion-select-option [value]="postFounding">Angemeldeter Freelancer</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Dein Gründungsdatum</ion-label>
+        <ion-datetime displayFormat="DD.MM.YY" formControlName="founding_date"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Deine Branche:</ion-label>
+        <ion-select class="basicSelect" formControlName="branche">
+          <ion-select-option *ngFor="let brancheItem of branches" [value]="brancheItem">{{ brancheItem }}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Deine Tätigkeit</ion-label>
+        <ion-input type="text" formControlName="occupation"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Deine geplante Gesellschaftsform</ion-label>
+        <ion-input type="text" formControlName="freelancerType"></ion-input>
+      </ion-item>
+
+
+    </ion-list>
+
+    <ion-button color="danger" expand="full" id="submitButton" (click)="submit()" style="text-align: center">Alles
+      richtig!</ion-button>
+  </form>
+</ion-content>
