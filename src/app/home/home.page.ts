@@ -22,11 +22,11 @@ export class HomePage implements OnInit {
 
   ngDoCheck() {
     if (this.showTaxDeclLink && this.stateService.has('taxdeclfinished')) {
-      this.showTaxDeclLink = !this.stateService.get('taxdeclfinished');
+      setTimeout(() => {this.showTaxDeclLink = !this.stateService.get('taxdeclfinished');}, 1000);
     }
 
     if (this.showInsuranceLink && this.stateService.has('insurancefinished')) {
-      this.showInsuranceLink = !this.stateService.get('insurancefinished');
+      setTimeout(() => {this.showInsuranceLink = !this.stateService.get('insurancefinished');}, 1000);
     }
   }
 

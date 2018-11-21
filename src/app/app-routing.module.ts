@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: 'videochat', loadChildren: './videochat/videochat.module#VideochatPageModule' },
   { path: 'checkresults', loadChildren: './checkresults/checkresults.module#CheckresultsPageModule' },
   { path: 'taxdeclaration', loadChildren: './taxdeclaration/taxdeclaration.module#TaxDeclarationModule' },
+  { path: 'taxdeclaration1', loadChildren: './taxdeclaration1/taxdeclaration1.module#TaxDeclaration1Module' },
   { path: 'insurance', loadChildren: './insurance/insurance.module#InsuranceModule' }
 ];
 @NgModule({
