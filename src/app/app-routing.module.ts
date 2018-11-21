@@ -1,3 +1,4 @@
+import { FullformPage } from './fullform/fullform.page';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { RoutingResolverService } from './services/routingresolver.service';

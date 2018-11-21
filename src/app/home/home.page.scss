@@ -27,3 +27,9 @@ progress {
     transition: $value-transition;
   }
 }
+
+#logo {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+}
