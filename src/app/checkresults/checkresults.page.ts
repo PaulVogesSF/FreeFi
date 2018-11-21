@@ -74,19 +74,8 @@ export class CheckresultsPage implements OnInit {
 
     this.stateService.set('onboardingfinished', true);
 
-<<<<<<< HEAD
     this.router.navigate(['/dashboard']);
     }
-=======
-    this.presentLoading();
-
-    setTimeout(() => {
-      console.log('Waited');
-      this.router.navigate(['/']);
-    }, 2500);
-  }
-
->>>>>>> cd122c7a3860414a4a7ceadd00cb66bbd8d7dba1
 
 
   buildForm() {
