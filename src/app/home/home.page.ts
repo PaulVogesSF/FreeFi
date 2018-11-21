@@ -11,13 +11,21 @@ export class HomePage implements OnInit {
 
   showTaxDeclLink: boolean = true;
   showInsuranceLink: boolean = true;
+  showCards: number = 0;
 
   constructor(private stateService: StateService) {
 
   }
 
   ngOnInit() {
-
+    const max = 5;
+    const interval = setInterval(() => {
+      this.showCards += 1;
+      if(this.showCards > max) {
+        clearInterval(interval);
+      }
+      }, 2000
+    );
   }
 
   ngDoCheck() {

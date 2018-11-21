@@ -65,7 +65,6 @@ export class LandingPage implements OnInit {
     this.newFreelancer.founding_status = this.basicForm.value['founding_status'];
     this.newFreelancer.branche = this.basicForm.value['branche'];
     this.newFreelancer.occupation = this.basicForm.value['occupation'];
-    console.log('Created freelancer: ', this.newFreelancer);
     this.fireStore
     .collection<Freelancer>('users')
     .doc(newID)

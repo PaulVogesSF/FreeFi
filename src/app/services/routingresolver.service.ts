@@ -11,7 +11,6 @@ export class RoutingResolverService implements Resolve<any> {
   constructor(private router: Router, private stateService: StateService) { }
 
   async resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<any> {
-    console.log('resolver %s', this.stateService.get('onboardingfinished'));
     const showIntro: boolean = !(this.stateService.get('onboardingfinished') || false);
     if (showIntro) {
       this.router.navigateByUrl('/landing');
