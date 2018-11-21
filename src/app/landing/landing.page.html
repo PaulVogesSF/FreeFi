@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-title>Free my Freelance</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <p>
+    Herzlich Willkommen bei Free my Freelance.<br />
+    Wir helfen dir dabei, deine Freiberuflichkeit zu managen.<br /><br />
+
+    Gib uns folgende Daten und wir verbinden dich mit einem unserer kompetenten Berater,
+    der dir in einem ersten persönlichen Gespräch Rede und Antwort steht.</p>
+  <form [formGroup]="basicForm">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Dein Name:</ion-label>
+        <ion-input type="text" formControlName="name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Wie weit bist du mit deiner Gründung?</ion-label>
+        <ion-select class="basicSelect" formControlName="founding_status">
+          <ion-select-option [value]="preFounding">In Planung</ion-select-option>
+          <ion-select-option [value]="duringFounding">In der Gründung</ion-select-option>
+          <ion-select-option [value]="postFounding">Angemeldeter Freelancer</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>In welcher Branche bist du tätig?</ion-label>
+        <ion-select class="basicSelect" formControlName="branche">
+          <ion-select-option *ngFor="let brancheItem of branches" [value]="brancheItem">{{ brancheItem }}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Beschreibe deine Tätigkeit möglichst genau:</ion-label>
+        <ion-input type="text" formControlName="occupation"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-button color="danger" expand="full" id="submitButton" (click)="submit()" style="text-align: center">Berater
+      suchen</ion-button>
+    <!-- *ngIf="basicForm.valid" -->
+  </form>
+</ion-content>
