@@ -1,11 +1,25 @@
+#videoContainer {
+    position: relative;
+}
+
+#agora_local div {
+    border-radius: 200px 200px 200px 200px;
+    -moz-border-radius: 200px 200px 200px 200px;
+    -webkit-border-radius: 200px 200px 200px 200px;
+    border: 1px solid #ffffff;  
+}
 
 #agora_local{
-    height: 5px;
-    width: 5px;
-    display: inline-block;
+    height: 80px;
+    width: 80px;
+    position: absolute;
+    top: 60px;
+    right: 25px;
 }
 
 .remote-containers div{
-    height: 250px;
-    width: 250px;
+    position: absolute;
+    top: 50px;
+    height: 550px;
+    width: 380px;
 }

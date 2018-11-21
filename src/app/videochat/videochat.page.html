@@ -5,12 +5,18 @@
 </ion-header>
 
 <ion-content padding>
-  
-<div id="agora_local">
-  </div>
-  <div class="remote-containers">
-    <div class="remote_calls" *ngFor="let remote of remoteCalls;" [id]="remote">
+
+  <div id="videContainer">
+    <div class="remote-containers">
+      <div class="remote_calls" *ngFor="let remote of remoteCalls;" [id]="remote">
+      </div>
     </div>
+
+    <div id="agora_local" style="display:hidden">
+    </div>
+
+
   </div>
+
   <button (click)="startCall()">Start Call</button>
 </ion-content>
