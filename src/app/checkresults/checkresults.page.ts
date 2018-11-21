@@ -69,13 +69,8 @@ export class CheckresultsPage implements OnInit {
     .doc('bIcyKqXhxPq4zOUuFHxh')
     .set(this.currentFreelancer);
 
-    this.presentLoading();
-
-    setTimeout(() => {
-      console.log('Waited');
-      }, 2500);
+    this.router.navigate(['/dashboard']);
     }
-    // this.router.navigate(['/dashboard']);
 
 
   buildForm() {

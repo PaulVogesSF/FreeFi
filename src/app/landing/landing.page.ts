@@ -71,7 +71,7 @@ export class LandingPage implements OnInit {
     .doc(newID)
     .set(this.newFreelancer);
 
-    this.router.navigate(['/checkresults']);
+    this.router.navigate(['/fullform']);
   }
 
 

@@ -1,15 +1,23 @@
 <ion-header>
-  <ion-toolbar color="danger">
+  <ion-toolbar color="primary">
     <ion-title>Video-Chat mit deinem Experten</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
+  <ion-card *ngIf="showSpinner">
+    <ion-spinner></ion-spinner>
+    <p>Warte auf Berater...</p>
+  </ion-card>
+  
 
   <div id="videoContainer">
     <div class="remote-containers">
-      <div class="remote_calls" *ngFor="let remote of remoteCalls;" [id]="remote">
+      <div *ngIf="!showSpinner">
+        <div class="remote_calls" *ngFor="let remote of remoteCalls;" [id]="remote">
       </div>
+      </div>
+      
     </div>
 
     <div id="agora_local" style="display:hidden">
@@ -17,4 +25,5 @@
 
 
   </div>
+  <ion-button (click)="endCall()" color="primary" id="submitButton"><ion-icon name="call"></ion-icon>&nbsp; Auflegen</ion-button>
 </ion-content>

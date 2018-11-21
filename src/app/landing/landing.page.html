@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar color="danger">
+  <ion-toolbar color="primary">
     <ion-title>Free my Freelance</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,8 +9,7 @@
     Herzlich Willkommen bei Free my Freelance.<br />
     Wir helfen dir dabei, deine Freiberuflichkeit zu managen.<br /><br />
 
-    Gib uns folgende Daten und wir verbinden dich mit einem unserer kompetenten Berater,
-    der dir in einem ersten persönlichen Gespräch Rede und Antwort steht.</p>
+    Bitte gib uns zunächst folgende Daten:</p>
   <form [formGroup]="basicForm">
     <ion-list>
       <ion-item>
@@ -40,8 +39,7 @@
       </ion-item>
     </ion-list>
 
-    <ion-button color="danger" expand="full" id="submitButton" (click)="submit()" style="text-align: center">Berater
-      suchen</ion-button>
+    <ion-button color="danger" expand="full" id="submitButton" (click)="submit()" style="text-align: center">Weiter</ion-button>
     <!-- *ngIf="basicForm.valid" -->
   </form>
 </ion-content>

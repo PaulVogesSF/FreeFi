@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Deine weiteren Daten</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+  
+  <ion-content padding>
+    <p>
+      Leider benötigen wir für eine gute Analyse noch weitere Daten von dir... <br /> 
+      Wenn du willst, kannst du das Formular aber auch...
+    </p>
+    <ion-button color="primary" expand="full" class="submitButton" (click)="submit()" style="text-align: center">Mit einem Berater ausfüllen!</ion-button>
+    <form [formGroup]="resultsform">
+      <ion-list>
+        <ion-item>
+          <ion-label position="floating">Deine Adresse:</ion-label>
+          <ion-input type="text" formControlName="street"></ion-input>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label position="floating">Deine Steuernummer:</ion-label>
+          <ion-input type="text" formControlName="steuerNo"></ion-input>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label position="floating">Deine Umsatzsteuer-ID:</ion-label>
+          <ion-input type="text" formControlName="ustID"></ion-input>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label position="floating">Dein Steuerberater:</ion-label>
+          <ion-input type="text" formControlName="taxAdvisor"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Dein Gründungsdatum</ion-label>
+          <ion-datetime displayFormat="DD.MM.YY" formControlName="founding_date"></ion-datetime>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label position="floating">Deine geplante Gesellschaftsform</ion-label>
+          <ion-input type="text" formControlName="freelancerType"></ion-input>
+        </ion-item>
+  
+  
+      </ion-list>
+      <ion-button color="primary" expand="full" class="submitButton">Absenden</ion-button>
+      
+    </form>
+  </ion-content>

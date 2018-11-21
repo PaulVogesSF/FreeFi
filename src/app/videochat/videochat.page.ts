@@ -2,25 +2,33 @@ import { AngularFirestore, DocumentSnapshot, QueryDocumentSnapshot } from '@angu
 import { Component, OnInit } from '@angular/core';
 import { firestore } from 'firebase';
 import { AngularAgoraRtcService, Stream } from 'angular-agora-rtc';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-videochat',
   templateUrl: './videochat.page.html',
   styleUrls: ['./videochat.page.scss'],
 })
-export class VideochatPage implements OnInit{
+export class VideochatPage implements OnInit {
   title = 'AgoraDemo';
   localStream: Stream;
   remoteCalls: any = [];
 
+  showSpinner = true;
+
   constructor(
-    private agoraService: AngularAgoraRtcService
+    private agoraService: AngularAgoraRtcService,
+    private router: Router
   ) {
     this.agoraService.createClient();
   }
 
   ngOnInit() {
     this.startCall();
+  }
+
+  endCall() {
+    this.router.navigate(['/checkresults']);
   }
 
   startCall() {
@@ -70,10 +78,13 @@ export class VideochatPage implements OnInit{
     });
     this.agoraService.client.on('stream-subscribed', (evt) => {
       const stream = evt.stream;
+      this.showSpinner = false;
       if (!this.remoteCalls.includes(`agora_remote${stream.getId()}`)) {
         this.remoteCalls.push(`agora_remote${stream.getId()}`);
       }
-      setTimeout(() => stream.play(`agora_remote${stream.getId()}`), 2000);
+      setTimeout(() => {
+        stream.play(`agora_remote${stream.getId()}`);
+      }, 2000);
     });
     this.agoraService.client.on('stream-removed', (evt) => {
       const stream = evt.stream;
