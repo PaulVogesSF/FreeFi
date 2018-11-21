@@ -12,12 +12,12 @@
   <form [formGroup]="basicForm">
     <ion-list>
       <ion-item>
-        <ion-label position="floating">Dein Name:</ion-label>
+        <ion-label text-wrap position="floating">Wie heißt du?</ion-label>
         <ion-input type="text" formControlName="name"></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-label floating>Wie weit bist du mit deiner Gründung?</ion-label>
+        <ion-label text-wrap>Wie weit bist du mit deiner Gründung?</ion-label>
         <ion-select class="basicSelect" formControlName="founding_status">
           <ion-select-option [value]="preFounding">In Planung</ion-select-option>
           <ion-select-option [value]="duringFounding">In der Gründung</ion-select-option>
@@ -26,14 +26,14 @@
       </ion-item>
 
       <ion-item>
-        <ion-label floating>In welcher Branche bist du tätig?</ion-label>
+        <ion-label text-wrap>In welcher Branche bist du tätig?</ion-label>
         <ion-select class="basicSelect" formControlName="branche">
           <ion-select-option *ngFor="let brancheItem of branches" [value]="brancheItem">{{ brancheItem }}</ion-select-option>
         </ion-select>
       </ion-item>
 
       <ion-item>
-        <ion-label position="floating">Beschreibe deine Tätigkeit möglichst genau:</ion-label>
+        <ion-label text-wrap position="floating">Beschreibe deine Tätigkeit möglichst genau:</ion-label>
         <ion-input type="text" formControlName="occupation"></ion-input>
       </ion-item>
     </ion-list>
