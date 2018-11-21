@@ -8,7 +8,7 @@ import { AngularAgoraRtcService, Stream } from 'angular-agora-rtc';
   templateUrl: './videochat.page.html',
   styleUrls: ['./videochat.page.scss'],
 })
-export class VideochatPage {
+export class VideochatPage implements OnInit{
   title = 'AgoraDemo';
   localStream: Stream;
   remoteCalls: any = [];
@@ -17,6 +17,10 @@ export class VideochatPage {
     private agoraService: AngularAgoraRtcService
   ) {
     this.agoraService.createClient();
+  }
+
+  ngOnInit() {
+    this.startCall();
   }
 
   startCall() {
