@@ -4,10 +4,34 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
+
   <ion-card-header>
     <ion-card-title>Hallo Franki</ion-card-title>
   </ion-card-header>
+
+  <ion-fab vertical="top" horizontal="end">
+    <ion-button href="/taxdeclaration" (click)="showChat()" color="danger">
+      Chat
+    </ion-button>
+  </ion-fab>
+
+  <ion-card *ngIf="showTaxDeclLink">
+    <ion-item href="/taxdeclaration" slot="start">
+      <ion-card-content>
+        Neu hier? Na, dann schau doch mal in unsere <strong>Einführung</strong>.
+      </ion-card-content>
+    </ion-item>
+  </ion-card>
+
+
+  <ion-card *ngIf="showTaxDeclLink">
+    <ion-item href="/taxdeclaration" slot="start">
+      <ion-card-content>    
+        Welche <strong>Versicherungen</strong> sind für dich wirklich sinnvoll? Wir zeigen sie dir.
+      </ion-card-content>
+    </ion-item>
+  </ion-card>
 
   <ion-card *ngIf="showTaxDeclLink">
     <ion-item href="/taxdeclaration" slot="start">
@@ -28,16 +52,10 @@
   <ion-card>
     <ion-item href="#" slot="start">
       <ion-card-content>
-        Weitere Hinweise
+        <strong>Finanzierung</strong> benötigt? Wir zeigen dir, welche zu dir passt.
       </ion-card-content>
     </ion-item>
   </ion-card>
-
-  <ion-fab vertical="bottom" horizontal="center">
-    <ion-button href="/taxdeclaration" (click)="showChat()">
-      Fragen?
-    </ion-button>
-  </ion-fab>
 
 
 </ion-content>
