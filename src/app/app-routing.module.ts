@@ -1,6 +1,6 @@
-import { FullformPage } from './fullform/fullform.page';
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+
 import { RoutingResolverService } from './services/routingresolver.service';
 
 const routes: Routes = [
@@ -16,6 +16,8 @@ const routes: Routes = [
   { path: 'taxdeclaration', loadChildren: './taxdeclaration/taxdeclaration.module#TaxDeclarationModule' },
   { path: 'taxdeclaration1', loadChildren: './taxdeclaration1/taxdeclaration1.module#TaxDeclaration1Module' },
   { path: 'insurance', loadChildren: './insurance/insurance.module#InsuranceModule' },
+  { path: 'chat', loadChildren: './chat/chat.module#ChatPageModule' },
+  { path: 'fullform', loadChildren: './fullform/fullform.module#FullformPageModule' },
   {
     path: '**',
     redirectTo: '',

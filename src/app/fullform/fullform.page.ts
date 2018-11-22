@@ -12,8 +12,9 @@ export class FullformPage implements OnInit {
   constructor(private router: Router,
     private formBuilder: FormBuilder) { }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+      this.buildForm();
+    }
 
   submit() {
     this.router.navigate(['/videochat']);
