@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>BlåMo</ion-title>
-    <img src="../../assets/images/Blamo_logo_final.png" width="40px" id="logo" />
+    <ion-title>blåmo</ion-title>
+    <img src="../../assets/images/Blamo_logo_final_trimmed.png" height="50px" width="50px" id="logo" />
   </ion-toolbar>
 </ion-header>
 
@@ -12,7 +12,7 @@
   </ion-card-header>
 
   <ion-fab vertical="top" horizontal="end">
-    <ion-button href="/taxdeclaration" (click)="showChat()" color="primary">
+    <ion-button href="/chat" color="primary">
       <ion-icon name="text" slot="start"></ion-icon> Chat
     </ion-button>
   </ion-fab>
@@ -21,7 +21,7 @@
   <progress *ngIf="showCards < 6" value="{{showCards}}" max="5"></progress>
 
   <ion-card *ngIf="showCards >= 1">
-    <ion-item href="/taxdeclaration" slot="start">
+    <ion-item href="" slot="start">
       <ion-card-content>
         Neu hier? Na, dann schau doch mal in unsere <strong>Einführung</strong>.
       </ion-card-content>
