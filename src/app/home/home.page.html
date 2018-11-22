@@ -46,7 +46,7 @@
   </ion-card>
 
   <ion-card *ngIf="showCards >= 4 && showInsuranceLink">
-    <ion-item href="/insurance" slot="start">
+    <ion-item href="/insurance" slot="start" (click)="showBadge()">
       <ion-card-content>
         Wir empfehlen dir eine <strong>IT-Haftpflichtversicherung</strong>
       </ion-card-content>
