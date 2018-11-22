@@ -13,7 +13,7 @@
 
   <div *ngIf="showCards < 6">
       <p padding><strong>Analysiere deine Daten...</strong></p>
-      <progress value="{{showCards}}" max="5"></progress>
+      <progress value="{{showCards}}" max="6"></progress>
   </div>
 
   <ion-fab vertical="top" horizontal="end">
@@ -32,7 +32,7 @@
 
 
   <ion-card *ngIf="showCards >= 2">
-    <ion-item href="/taxdeclaration" slot="start">
+    <ion-item href="/taxdeclaration" (click)="showBadge()" slot="start">
       <ion-card-content>    
         Welche <strong>Versicherungen</strong> sind für dich wirklich sinnvoll? Wir zeigen sie dir.
       </ion-card-content>
@@ -62,6 +62,15 @@
       </ion-card-content>
     </ion-item>
   </ion-card>
+
+  <ion-card *ngIf="showCards >= 6">
+      <ion-item href="#" slot="start">
+        <ion-card-content>
+          Endlich im eigenen Büro arbeiten?
+          Wir haben die richtigen <strong>Immobilienangebote</strong> für dich!
+        </ion-card-content>
+      </ion-item>
+    </ion-card>
 
 
 </ion-content>

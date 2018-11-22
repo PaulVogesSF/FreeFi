@@ -4,3 +4,18 @@
     top: 3px;
     right: 3px;
 }
+
+ion-chip {
+    font-size: 1.3em;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    margin-bottom: 13px;
+    flex-flow: column;
+    height: 61px;
+    text-align: center;
+    color: black;
+}
+
+.bigChip ion-chip {
+    height: 81px;
+}
