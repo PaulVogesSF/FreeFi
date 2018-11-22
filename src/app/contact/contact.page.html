@@ -12,25 +12,25 @@
 </ion-card-header>
 
 <ion-content padding>
-  
-  <ion-chip color="success" *ngIf="badgeValue === '2'">
-    <ion-label>Du erhältst <strong>873,45€</strong> vom Finanzamt zurück!
-      Wow, so viel Geld!
-    </ion-label>
-  </ion-chip>
-  <ion-chip color="tertiary" *ngIf="badgeValue === '2'">
-    <ion-label>Das Finanzamt hat deine Steuererklärung angenommen.
-    </ion-label>
-  </ion-chip>
-  <div class="bigChip" *ngIf="badgeValue === '1'">
+
+  <div class="bigChip" *ngIf="badgeValue >= '1'">
     <ion-chip color="tertiary">
-    <ion-label>Peter Steuermeister 
-      mit dem EÜR-Formular deiner Steuererklärung begonnen. 
+      <ion-label>Peter Steuermeister hat
+        mit dem EÜR-Formular deiner Steuererklärung begonnen.
+      </ion-label>
+    </ion-chip>
+  </div>
+
+  <ion-chip color="tertiary" *ngIf="badgeValue === '2'">
+    <ion-label>Das Finanzamt hat deine Steuererklärung angenommen.</ion-label>
+  </ion-chip>
+
+  <ion-chip color="success" *ngIf="badgeValue === '2'">
+    <ion-label>Wow, tolle Nachricht. Du erhältst <strong>873,45€</strong> vom Finanzamt zurück!
     </ion-label>
   </ion-chip>
-  </div>
-  
-  
-  
+
+
+
 
 </ion-content>

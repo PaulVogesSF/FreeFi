@@ -1,15 +1,15 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>blåmo</ion-title>
+    <ion-title>{{ username }} blåmo</ion-title>
     <img src="../../assets/images/Blamo_logo_final_trimmed.png" height="50px" width="50px" id="logo" />
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
-  <ion-card-header>
+  <!-- <ion-card-header>
     <ion-card-title>Hallo {{ username }}</ion-card-title>
-  </ion-card-header>
+  </ion-card-header> -->
 
   <ion-fab vertical="top" horizontal="end">
     <ion-button href="/chat" color="primary">
@@ -28,27 +28,18 @@
     </ion-item>
   </ion-card>
 
-
-  <ion-card *ngIf="showCards >= 2">
-    <ion-item href="" slot="start">
-      <ion-card-content>
-        <strong>Steuern sparen</strong> kann so einfach sein. Belege sammeln leicht gemacht.
-      </ion-card-content>
-    </ion-item>
-  </ion-card>
-
   <ion-card *ngIf="showCards >= 3 && showTaxDeclLink">
     <ion-item href="/taxdeclaration" slot="start">
       <ion-card-content>
-        Es ist mal wieder Zeit für deine <strong>Steuererklärung</strong>
+        Es ist mal wieder Zeit für deine <strong>Steuererklärung.</strong>
       </ion-card-content>
     </ion-item>
   </ion-card>
 
-  <ion-card *ngIf="showCards >= 4 && showInsuranceLink">
+  <ion-card *ngIf="showCards >= 4">
     <ion-item href="/insurance" slot="start" (click)="showBadge()">
       <ion-card-content>
-        Wir empfehlen dir eine <strong>IT-Haftpflichtversicherung</strong>
+        Wir empfehlen dir eine <strong>IT-Haftpflichtversicherung.</strong>
       </ion-card-content>
     </ion-item>
   </ion-card>
@@ -62,13 +53,21 @@
   </ion-card>
 
   <ion-card *ngIf="showCards >= 6">
-      <ion-item href="#" slot="start">
-        <ion-card-content>
-          Endlich im eigenen Büro arbeiten?
-          Wir haben die richtigen <strong>Immobilienangebote</strong> für dich!
-        </ion-card-content>
-      </ion-item>
-    </ion-card>
+    <ion-item href="#" slot="start">
+      <ion-card-content>
+        Endlich im eigenen Büro arbeiten?
+        Wir haben die richtigen <strong>Immobilienangebote</strong> für dich.
+      </ion-card-content>
+    </ion-item>
+  </ion-card>
+
+  <ion-card *ngIf="showCards >= 2">
+    <ion-item href="" slot="start">
+      <ion-card-content>
+        <strong>Steuern sparen</strong> kann so einfach sein. Belege sammeln leicht gemacht.
+      </ion-card-content>
+    </ion-item>
+  </ion-card>
 
 
 </ion-content>

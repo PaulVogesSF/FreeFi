@@ -8,19 +8,18 @@
 
 <ion-content padding>
   <p>
-    Wir benötigen noch zusätzliche Daten zur Art deiner Selbstständigkeit von dir</p>
-  <p>Wenn du willst, kannst du das Formular aber auch mit einem unserer Steuerberater/innen
-    zusammen ausfüllen. Die können dir dann auch gleich andere wichtige Fragen beantworten.
+    Wir benötigen noch zusätzliche Daten zur Art deiner Selbstständigkeit.</p>
+  <p>Du kannst das Formular aber auch mit einem unserer Steuerberater/innen
+    zusammen ausfüllen. Die können dir auch gleich wichtige Fragen beantworten.
   </p>
-  <ion-button color="primary" expand="full" class="submitButton" (click)="submit()" style="text-align: center">Mit
-    einem Berater ausfüllen!</ion-button>
+  <ion-button color="primary" expand="full" class="submitButton" (click)="submit()" style="text-align: center">Hilf mir
+    dabei</ion-button>
   <form [formGroup]="resultsform">
     <ion-list>
-      <ion-item>
-        <ion-label position="floating">Deine Adresse:</ion-label>
-        <ion-input type="text" formControlName="street"></ion-input>
-      </ion-item>
 
+        <ion-item>
+      <ion-label>2 / 8</ion-label>
+        </ion-item>
       <ion-item>
         <ion-label position="floating">Deine Steuernummer:</ion-label>
         <ion-input type="text" formControlName="steuerNo"></ion-input>
@@ -45,9 +44,14 @@
         <ion-input type="text" formControlName="freelancerType"></ion-input>
       </ion-item>
 
+      <ion-item>
+        <ion-label position="floating">Deine Adresse:</ion-label>
+        <ion-input type="text" formControlName="street"></ion-input>
+      </ion-item>
+
 
     </ion-list>
-    <ion-button color="primary" expand="full" class="submitButton">Weiter</ion-button>
+    <ion-button color="primary" expand="full" class="submitButton">Selber ausfüllen</ion-button>
 
   </form>
 </ion-content>
