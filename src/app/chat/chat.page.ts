@@ -13,9 +13,8 @@ export interface Chat {
 })
 export class ChatPage implements OnInit {
 
-  data = { type: '', nickname: '', message: '' };
+  data = { message: '' };
   chats: Chat[];
-  chat = {};
 
   constructor() {
     this.chats = [];
@@ -30,8 +29,12 @@ export class ChatPage implements OnInit {
 
   }
 
-  ngDoCheck() {
-
+  sendMessage() {
+    this.chats.push({
+      user: 'nickname',
+      sendDate: new Date(),
+      message: this.data.message,
+    });
   }
 
 }
