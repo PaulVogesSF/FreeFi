@@ -13,22 +13,29 @@
 
 <ion-content padding>
 
-  <div class="bigChip" *ngIf="badgeValue >= '1'">
-    <ion-chip color="tertiary">
-      <ion-label>Peter Steuermeister hat
-        mit dem EÜR-Formular deiner Steuererklärung begonnen.
-      </ion-label>
-    </ion-chip>
+  <div *ngIf="badgeValue >= '1'">
+    <ion-card>
+      <ion-item href="" slot="start">
+        <ion-card-content>
+          Peter Steuermeister hat
+          mit dem EÜR-Formular deiner Steuererklärung begonnen.
+        </ion-card-content>
+      </ion-item>
+    </ion-card>
   </div>
 
-  <ion-chip color="tertiary" *ngIf="badgeValue === '2'">
-    <ion-label>Das Finanzamt hat deine Steuererklärung angenommen.</ion-label>
-  </ion-chip>
+  <ion-card *ngIf="badgeValue === '2'">
+    <ion-item href="" slot="start">
+      <ion-card-content>Das Finanzamt hat deine Steuererklärung angenommen.</ion-card-content>
+    </ion-item>
+  </ion-card>
 
-  <ion-chip color="success" *ngIf="badgeValue === '2'">
-    <ion-label>Wow, tolle Nachricht. Du erhältst <strong>873,45€</strong> vom Finanzamt zurück!
-    </ion-label>
-  </ion-chip>
+  <ion-card color="success" *ngIf="badgeValue === '2'">
+    <ion-item href="" slot="start">
+      <ion-card-content>Wow, tolle Nachricht. Du erhältst <strong>873,45€</strong> vom Finanzamt zurück!
+      </ion-card-content>
+    </ion-item>
+  </ion-card>
 
 
 
