@@ -24,7 +24,7 @@
 
     <ion-tab-button tab="contact" href="/tabs/(contact:contact)">
       <ion-icon name="sync"></ion-icon>
-      <ion-label>Updates <ion-badge *ngIf="showBadgeBool" color="danger">2</ion-badge>
+      <ion-label>Updates <ion-badge *ngIf="badgeValue === '1' || badgeValue === '2'" color="danger">{{ badgeValue }}</ion-badge>
       </ion-label>
     </ion-tab-button>
 

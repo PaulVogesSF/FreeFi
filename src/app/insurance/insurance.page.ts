@@ -18,6 +18,7 @@ export class InsurancePage implements OnInit {
 
   public doItForMe() {
     this.stateService.set('insurancefinished', true);
-    this.router.navigateByUrl('/');
+    this.stateService.set('badgeValue', '2');
+    this.router.navigate(['/dashboard']);
   }
 }

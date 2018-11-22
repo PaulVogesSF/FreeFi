@@ -87,6 +87,7 @@ export class CheckresultsPage implements OnInit {
       .set(this.currentFreelancer);
 
     this.stateService.set('onboardingfinished', true);
+    this.stateService.set('badgeValue', '0');
 
     this.router.navigate(['/dashboard']);
     }

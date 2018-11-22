@@ -18,6 +18,7 @@ export class TaxDeclarationPage implements OnInit {
 
   public doItForMe() {
     this.stateService.set('taxdeclfinished', true);
+    this.stateService.set('badgeValue', '1');
     this.router.navigateByUrl('/');
   }
 }
