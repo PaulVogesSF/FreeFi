@@ -9,17 +9,20 @@ import { StateService } from '../services/state.service';
 })
 export class HomePage implements OnInit, DoCheck {
 
-  showTaxDeclLink  = true;
-  showInsuranceLink = true;
-  showCards = 0;
+  showTaxDeclLink: boolean = true;
+  showInsuranceLink: boolean = true;
+  showCards: number = 0;
+  analyseData: string;
 
   constructor(private stateService: StateService) {
 
   }
 
   ngOnInit() {
-    const max = 6;
+    const analysisData: string[] = ['Analysiere Status', 'Analysiere Konten', 'Analysiere Verträge', 'Analysiere Tätigkeitsprofil', 'Bin fix und FERTIG'];
+    const max = 5;
     const interval = setInterval(() => {
+      this.analyseData = analysisData[this.showCards];
       this.showCards += 1;
       if (this.showCards > max) {
         clearInterval(interval);

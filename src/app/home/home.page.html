@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>Willkommen</ion-title>
-    <img src="../../assets/images/Blamo_logo_final.png" height="50px" width="50px" id="logo" />
+    <ion-title>BlåMo</ion-title>
+    <img src="../../assets/images/Blamo_logo_final.png" width="40px" id="logo" />
   </ion-toolbar>
 </ion-header>
 
@@ -11,16 +11,14 @@
     <ion-card-title>Hallo Franki</ion-card-title>
   </ion-card-header>
 
-  <div *ngIf="showCards < 6">
-      <p padding><strong>Analysiere deine Daten...</strong></p>
-      <progress value="{{showCards}}" max="6"></progress>
-  </div>
-
   <ion-fab vertical="top" horizontal="end">
     <ion-button href="/taxdeclaration" (click)="showChat()" color="primary">
-      Chat
+      <ion-icon name="text" slot="start"></ion-icon> Chat
     </ion-button>
   </ion-fab>
+
+  <p padding *ngIf="showCards < 6"><strong>{{analyseData}}</strong></p>
+  <progress *ngIf="showCards < 6" value="{{showCards}}" max="5"></progress>
 
   <ion-card *ngIf="showCards >= 1">
     <ion-item href="/taxdeclaration" slot="start">
@@ -32,9 +30,9 @@
 
 
   <ion-card *ngIf="showCards >= 2">
-    <ion-item href="/taxdeclaration" (click)="showBadge()" slot="start">
-      <ion-card-content>    
-        Welche <strong>Versicherungen</strong> sind für dich wirklich sinnvoll? Wir zeigen sie dir.
+    <ion-item href="" slot="start">
+      <ion-card-content>
+        <strong>Steuern sparen</strong> kann so einfach sein. Belege sammeln leicht gemacht.
       </ion-card-content>
     </ion-item>
   </ion-card>
@@ -50,7 +48,7 @@
   <ion-card *ngIf="showCards >= 4 && showInsuranceLink">
     <ion-item href="/insurance" slot="start">
       <ion-card-content>
-        Dir fehlt noch die <strong>IT-Haftpflichtversicherung</strong>
+        Wir empfehlen dir eine <strong>IT-Haftpflichtversicherung</strong>
       </ion-card-content>
     </ion-item>
   </ion-card>
