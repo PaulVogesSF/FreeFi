@@ -7,16 +7,13 @@
 
 <ion-content>
 
-  <!-- <ion-card-header>
-    <ion-card-title>Hallo {{ username }}</ion-card-title>
-  </ion-card-header> -->
-
   <ion-fab vertical="top" horizontal="end">
     <ion-button href="/chat" color="primary">
       <ion-icon name="text" slot="start"></ion-icon> Chat
     </ion-button>
   </ion-fab>
 
+  <p padding *ngIf="showCards >= 6"><strong>Dein Dashboard</strong></p>
   <p padding *ngIf="showCards < 6"><strong>{{analyseData}}</strong></p>
   <progress *ngIf="showCards < 6" value="{{showCards}}" max="5"></progress>
 
