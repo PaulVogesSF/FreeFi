@@ -7,7 +7,7 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: './tabs/tabs.module#TabsPageModule',
-    // resolve: [RoutingResolverService],
+    resolve: [RoutingResolverService],
   },
   // { path: '', redirectTo: '/landing', pathMatch: 'full' },
   { path: 'landing', loadChildren: './landing/landing.module#LandingPageModule' },
