@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 export interface Chat {
   user: string;
@@ -16,7 +17,7 @@ export class ChatPage implements OnInit {
   data = { message: '' };
   chats: Chat[];
 
-  constructor() {
+  constructor(private router: Router) {
     this.chats = [];
     this.chats.push({
       user: 'blåmo',
@@ -35,6 +36,10 @@ export class ChatPage implements OnInit {
       sendDate: new Date(),
       message: this.data.message,
     });
+  }
+
+  goHome() {
+    this.router.navigateByUrl('/');
   }
 
 }
