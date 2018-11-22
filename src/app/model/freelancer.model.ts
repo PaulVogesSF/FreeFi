@@ -13,4 +13,5 @@ export interface Freelancer {
     ustID: string;
     founding_date: string;
     taxAdvisor: string;
+    uid: string;
 }

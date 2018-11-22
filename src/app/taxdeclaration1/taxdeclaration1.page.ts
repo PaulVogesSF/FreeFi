@@ -1,3 +1,4 @@
+import { StateService } from './../services/state.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['taxdeclaration1.page.scss']
 })
 export class TaxDeclaration1Page implements OnInit {
-
-  constructor() {}
+  username = '';
+  constructor(private stateService: StateService) {}
 
   ngOnInit() {
-
+    this.stateService.get('username');
   }
 }

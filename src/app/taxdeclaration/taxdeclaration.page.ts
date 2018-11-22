@@ -9,11 +9,11 @@ import { Router } from '@angular/router';
   styleUrls: ['taxdeclaration.page.scss']
 })
 export class TaxDeclarationPage implements OnInit {
-
+  username = '';
   constructor(private stateService: StateService, private router: Router) {}
 
   ngOnInit() {
-
+    this.stateService.get('username');
   }
 
   public doItForMe() {

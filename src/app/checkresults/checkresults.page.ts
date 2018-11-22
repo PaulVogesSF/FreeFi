@@ -19,6 +19,10 @@ export class CheckresultsPage implements OnInit {
 
   resultsform: FormGroup;
 
+  username: string;
+
+  userID: string;
+
   branches = [
     'Bank- und Finanzwesen',
     'Versicherungen',
@@ -48,13 +52,23 @@ export class CheckresultsPage implements OnInit {
     private stateService: StateService) { }
 
   ngOnInit() {
+    this.username = this.stateService.get('username');
+    this.userID = this.stateService.get('userID'); // TODO RE-Implement
+
+    console.log('Loaded user: ', this.userID, this.username);
     this.branches.sort();
     this.buildForm();
-    this.dataLoader = this.fireStore.doc<Freelancer>('/users/bIcyKqXhxPq4zOUuFHxh').valueChanges();
-    this.dataLoader.subscribe(freelancer => {
+
+   this.dataLoader = this.fireStore.doc<Freelancer>('/users/' + this.userID).valueChanges();
+
+    console.log('Retrieved firestore data: ', this.dataLoader);
+
+    if (this.dataLoader) {
+      this.dataLoader.subscribe(freelancer => {
       this.currentFreelancer = freelancer;
       this.resultsform.patchValue(this.currentFreelancer);
     });
+    }
   }
 
   async presentLoading() {
@@ -69,7 +83,7 @@ export class CheckresultsPage implements OnInit {
     this.currentFreelancer = this.resultsform.value;
     this.fireStore
       .collection<Freelancer>('users')
-      .doc('bIcyKqXhxPq4zOUuFHxh')
+      .doc(this.userID)
       .set(this.currentFreelancer);
 
     this.stateService.set('onboardingfinished', true);
@@ -93,6 +107,7 @@ export class CheckresultsPage implements OnInit {
       ustID: '',
       founding_date: '',
       taxAdvisor: '',
+      uid: [this.userID]
     });
   }
 

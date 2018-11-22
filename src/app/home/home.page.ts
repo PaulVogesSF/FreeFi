@@ -1,6 +1,9 @@
 import { Component, OnInit, DoCheck } from '@angular/core';
 
 import { StateService } from '../services/state.service';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Freelancer } from '../model/freelancer.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -8,18 +11,36 @@ import { StateService } from '../services/state.service';
   styleUrls: ['home.page.scss']
 })
 export class HomePage implements OnInit, DoCheck {
+  dataLoader: Observable<Freelancer>;
 
-  showTaxDeclLink: boolean = true;
-  showInsuranceLink: boolean = true;
-  showCards: number = 0;
+  showTaxDeclLink = true;
+  showInsuranceLink = true;
+  showCards = 0;
   analyseData: string;
 
-  constructor(private stateService: StateService) {
+  username = '';
+
+
+  constructor(private stateService: StateService,
+    private fireStore: AngularFirestore) {
 
   }
 
   ngOnInit() {
-    const analysisData: string[] = ['Analysiere Status', 'Analysiere Konten', 'Analysiere Verträge', 'Analysiere Tätigkeitsprofil', 'Bin fix und FERTIG'];
+    this.dataLoader = this.fireStore.doc<Freelancer>('/users/' + this.stateService.get('userID')).valueChanges();
+    if (this.dataLoader) {
+      this.dataLoader.subscribe(freelancer => {
+      this.username = freelancer.name;
+      this.stateService.set('username', freelancer.name);
+    });
+  }
+
+    const analysisData: string[] =
+      ['Analysiere Status',
+      'Analysiere Konten',
+       'Analysiere Verträge',
+        'Analysiere Tätigkeitsprofil',
+         'Bin fix und FERTIG'];
     const max = 5;
     const interval = setInterval(() => {
       this.analyseData = analysisData[this.showCards];

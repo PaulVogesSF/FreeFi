@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Freelancer } from '../model/freelancer.model';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
+import { StateService } from '../services/state.service';
 
 @Component({
   selector: 'app-landing',
@@ -25,7 +26,8 @@ export class LandingPage implements OnInit {
     steuerNo: '2613081508153',
     ustID: 'DE123456789',
     founding_date: '2018-12-24',
-    taxAdvisor: 'Peter Steuermeister'
+    taxAdvisor: 'Peter Steuermeister',
+    uid: ''
   };
 
   branches = [
@@ -52,7 +54,8 @@ export class LandingPage implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
     private fireStore: AngularFirestore,
-    private router: Router) {}
+    private router: Router,
+    private stateService: StateService) {}
 
   ngOnInit() {
     this.branches.sort();
@@ -65,10 +68,15 @@ export class LandingPage implements OnInit {
     this.newFreelancer.founding_status = this.basicForm.value['founding_status'];
     this.newFreelancer.branche = this.basicForm.value['branche'];
     this.newFreelancer.occupation = this.basicForm.value['occupation'];
+    this.newFreelancer.uid = newID;
     this.fireStore
     .collection<Freelancer>('users')
     .doc(newID)
     .set(this.newFreelancer);
+
+    this.stateService.set('username', this.basicForm.value['name']);
+    this.stateService.set('userID', newID);
+    console.log('Saved new user to local storage: ', this.stateService.get('userID'));
 
     this.router.navigate(['/fullform']);
   }

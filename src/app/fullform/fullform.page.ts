@@ -9,10 +9,12 @@ import { Router } from '@angular/router';
 })
 export class FullformPage implements OnInit {
   resultsform: FormGroup;
+
   constructor(private router: Router,
     private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.buildForm();
   }
 
   submit() {
