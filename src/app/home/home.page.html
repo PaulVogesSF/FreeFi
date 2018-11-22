@@ -7,21 +7,19 @@
 
 <ion-content>
 
-  <!-- <ion-card-header>
-    <ion-card-title>Hallo {{ username }}</ion-card-title>
-  </ion-card-header> -->
-
   <ion-fab vertical="top" horizontal="end">
     <ion-button href="/chat" color="primary">
       <ion-icon name="text" slot="start"></ion-icon> Chat
     </ion-button>
   </ion-fab>
 
+  <p padding *ngIf="showCards >= 6"><strong>Dein Dashboard</strong></p>
   <p padding *ngIf="showCards < 6"><strong>{{analyseData}}</strong></p>
   <progress *ngIf="showCards < 6" value="{{showCards}}" max="5"></progress>
 
   <ion-card *ngIf="showCards >= 1">
     <ion-item href="" slot="start">
+      <ion-icon name="videocam" slot="start"></ion-icon>
       <ion-card-content>
         Neu hier? Na, dann schau doch mal in unsere <strong>Einführung</strong>.
       </ion-card-content>
@@ -30,6 +28,7 @@
 
   <ion-card *ngIf="showCards >= 3 && showTaxDeclLink">
     <ion-item href="/taxdeclaration" slot="start">
+      <ion-icon name="filing" slot="start"></ion-icon>
       <ion-card-content>
         Es ist mal wieder Zeit für deine <strong>Steuererklärung.</strong>
       </ion-card-content>
@@ -38,6 +37,7 @@
 
   <ion-card *ngIf="showCards >= 4">
     <ion-item href="/insurance" slot="start" (click)="showBadge()">
+      <ion-icon name="flame" slot="start"></ion-icon>
       <ion-card-content>
         Wir empfehlen dir eine <strong>IT-Haftpflichtversicherung.</strong>
       </ion-card-content>
@@ -46,6 +46,7 @@
 
   <ion-card *ngIf="showCards >= 5">
     <ion-item href="#" slot="start">
+      <ion-icon name="card" slot="start"></ion-icon>
       <ion-card-content>
         <strong>Finanzierung</strong> benötigt? Wir zeigen dir, welche zu dir passt.
       </ion-card-content>
@@ -54,6 +55,7 @@
 
   <ion-card *ngIf="showCards >= 6">
     <ion-item href="#" slot="start">
+        <ion-icon name="business" slot="start"></ion-icon>
       <ion-card-content>
         Endlich im eigenen Büro arbeiten?
         Wir haben die richtigen <strong>Immobilienangebote</strong> für dich.
@@ -63,6 +65,7 @@
 
   <ion-card *ngIf="showCards >= 2">
     <ion-item href="" slot="start">
+      <ion-icon name="logo-euro" slot="start"></ion-icon>
       <ion-card-content>
         <strong>Steuern sparen</strong> kann so einfach sein. Belege sammeln leicht gemacht.
       </ion-card-content>
